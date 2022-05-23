@@ -1,18 +1,35 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Login from './Pages/Authentication/Login';
+import RequireAuth from './Pages/Authentication/RequireAuth';
+import SignUp from './Pages/Authentication/SignUp';
+import Blogs from './Pages/Home/Blogs';
+import ContactUs from './Pages/Home/ContactUs';
 import HomeDisplay from './Pages/Home/HomeDisplay';
 import Footer from './Pages/Shared/Footer';
 import Navbar from './Pages/Shared/Navbar';
+import Shop from './Pages/Shop/Shop';
 
 
 function App() {
   return (
     <div>
-  <Navbar></Navbar>
-  <Routes>
-    <Route path='/' element={<HomeDisplay></HomeDisplay>}></Route>
-  </Routes>
-  <Footer></Footer>
+      <Navbar></Navbar>
+      <Routes>
+        <Route path='/' element={<HomeDisplay></HomeDisplay>}></Route>
+
+        <Route path="/shop" element={
+          <RequireAuth>
+            <Shop />
+          </RequireAuth>}>
+        </Route>
+
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/contact' element={<ContactUs></ContactUs>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/signup' element={<SignUp></SignUp>}></Route>
+      </Routes>
+      <Footer></Footer>
     </div>
   );
 }

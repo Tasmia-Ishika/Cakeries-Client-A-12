@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import Google  from '../../assets/icons/google.png';
+import Google  from '../../assets/google.png';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import useToken from '../../hooks/useToken';
+// import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -17,7 +17,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [token] = useToken(user || gUser)
+    // const [token] = useToken(user || gUser)
 
     let signInError;
     const navigate = useNavigate();
@@ -25,12 +25,13 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if (token) {
+        if (user) {
             navigate(from, { replace: true });
             // console.log(gUser);
             // console.log(user);
         }
-    }, [token, from, navigate])
+    }, [user, from, navigate])
+   
 
     if (loading || gLoading) {
         return <Loading></Loading>
@@ -103,7 +104,7 @@ const Login = () => {
                         {signInError}
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
-                    <p><small>New to Doctors Portal?  <Link className='text-primary font-bold' to="/signup">Create New Account</Link></small></p>
+                    <p><small>New to Cakeries Bangladesh?  <Link className='text-primary font-bold' to="/signup">Create New Account</Link></small></p>
                     <div className="divider">OR</div>
 
                     <button
