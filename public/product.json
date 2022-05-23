@@ -1,0 +1,74 @@
+[
+    {
+        "_id": 1,
+        "name": "Beater",
+        "price": "70",
+        "description": "A philips beater with 2 beating stands.",
+        "stock": "300",
+        "minimum": "10",
+        "img": "https://i.ibb.co/Y3LvXZs/beater.jpg"
+    },
+    {
+        "_id": 2,
+        "name": "Cake Mould",
+        "price": "10",
+        "description": "Aluminum cake mould for any kind of cake dough.",
+        "stock": "500",
+        "minimum": "30",
+        "img": "https://i.ibb.co/DVmrtZ3/cake-Mould.jpg"
+    },
+    {
+        "_id": 3,
+        "name": "Turntable",
+        "price": "50",
+        "description": "A turntable with golden stand in bottom.",
+        "stock": "400",
+        "minimum": "20",
+        "img": "https://i.ibb.co/qJZcXKf/turntable.jpg"
+    },
+    {
+        "_id": 4,
+        "name": "Cupcake Sheets",
+        "price": "5",
+        "description": "Cupcakes sheet for any kind of cupcakes.",
+        "stock": "1000",
+        "minimum": "100",
+        "img": "https://i.ibb.co/XDHgsNk/cupcake-Sheets.jpg"
+    },
+    {
+        "_id": 5,
+        "name": "Nozzle",
+        "price": "8",
+        "description": "To maker any flower or other design these nozzles ar just perfect.",
+        "stock": "1200",
+        "minimum": "120",
+        "img": "https://i.ibb.co/pd3VLvz/nozzle.jpg"
+    },
+    {
+        "_id": 6,
+        "name": "Measurement Spoon Set",
+        "price": "40",
+        "description": "Stainless steel spoon set for kitchen suppliance and baking purpose.",
+        "stock": "300",
+        "minimum": "15",
+        "img": "https://i.ibb.co/1zdLjPj/spoons.jpg"
+    },
+    {
+        "_id": 7,
+        "name": "Doughnut Mould",
+        "price": "90",
+        "description": "Make any kinds and sizes of doughnut with these. Easily washable.",
+        "stock": "550",
+        "minimum": "20",
+        "img": "https://i.ibb.co/2q6DQv9/doughnut.jpg"
+    },
+    {
+        "_id": 8,
+        "name": "Batter Knife",
+        "price": "15",
+        "description": "For smooth batter spread it is really useful. No side lineage , no scratch.",
+        "stock": "600",
+        "minimum": "50",
+        "img": "https://i.ibb.co/b2shWpd/batterknife.jpg"
+    }
+] 
