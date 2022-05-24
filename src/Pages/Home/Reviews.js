@@ -1,6 +1,7 @@
 import React from 'react';
-import { AiFillStar} from 'react-icons/ai';
-
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+import Rating from 'react-rating';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Reviews = ({ review }) => {
 
     return (
@@ -16,9 +17,12 @@ const Reviews = ({ review }) => {
                     <div>
                         <h4 className='text-xl'>{review.name}</h4>
                         <div>
-                            <div>
-                                <p className='font-bold text-lg' style={{color: "goldenrod"}}>Ratings: {review.ratings}<AiFillStar></AiFillStar></p>
-                           </div>
+                            <p><Rating
+                                initialRating={review.ratings}
+                                emptySymbol={<FontAwesomeIcon icon={faStar} />}
+                                fullSymbol={<FontAwesomeIcon style={{ color: 'goldenrod' }} icon={faStar} />}
+                                readonly
+                            ></Rating></p>
                         </div>
                         <p>{review.location}</p>
                     </div>

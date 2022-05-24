@@ -1,7 +1,7 @@
 [
     {
-        "_id": 1,
         "name": "Beater",
+        "ratings": "5",
         "price": "70",
         "description": "A philips beater with 2 beating stands.",
         "stock": "300",
@@ -9,8 +9,8 @@
         "img": "https://i.ibb.co/Y3LvXZs/beater.jpg"
     },
     {
-        "_id": 2,
         "name": "Cake Mould",
+        "ratings": "4.5",
         "price": "10",
         "description": "Aluminum cake mould for any kind of cake dough.",
         "stock": "500",
@@ -18,8 +18,8 @@
         "img": "https://i.ibb.co/DVmrtZ3/cake-Mould.jpg"
     },
     {
-        "_id": 3,
         "name": "Turntable",
+        "ratings": "3.8",
         "price": "50",
         "description": "A turntable with golden stand in bottom.",
         "stock": "400",
@@ -27,8 +27,8 @@
         "img": "https://i.ibb.co/qJZcXKf/turntable.jpg"
     },
     {
-        "_id": 4,
         "name": "Cupcake Sheets",
+        "ratings": "4.5",
         "price": "5",
         "description": "Cupcakes sheet for any kind of cupcakes.",
         "stock": "1000",
@@ -36,8 +36,8 @@
         "img": "https://i.ibb.co/XDHgsNk/cupcake-Sheets.jpg"
     },
     {
-        "_id": 5,
         "name": "Nozzle",
+        "ratings": "5",
         "price": "8",
         "description": "To maker any flower or other design these nozzles ar just perfect.",
         "stock": "1200",
@@ -45,8 +45,8 @@
         "img": "https://i.ibb.co/pd3VLvz/nozzle.jpg"
     },
     {
-        "_id": 6,
         "name": "Measurement Spoon Set",
+        "ratings": "4.8",
         "price": "40",
         "description": "Stainless steel spoon set for kitchen suppliance and baking purpose.",
         "stock": "300",
@@ -54,8 +54,8 @@
         "img": "https://i.ibb.co/1zdLjPj/spoons.jpg"
     },
     {
-        "_id": 7,
         "name": "Doughnut Mould",
+        "ratings": "4.3",
         "price": "90",
         "description": "Make any kinds and sizes of doughnut with these. Easily washable.",
         "stock": "550",
@@ -63,12 +63,21 @@
         "img": "https://i.ibb.co/2q6DQv9/doughnut.jpg"
     },
     {
-        "_id": 8,
         "name": "Batter Knife",
+        "ratings": "5.0",
         "price": "15",
         "description": "For smooth batter spread it is really useful. No side lineage , no scratch.",
         "stock": "600",
         "minimum": "50",
         "img": "https://i.ibb.co/b2shWpd/batterknife.jpg"
+    },
+    {
+        "name": "Batter Knife",
+        "ratings": "5.0",
+        "price": "8",
+        "description": "For smooth batter mixing it is really useful. Stainless steel, usable till 5 years.",
+        "stock": "700",
+        "minimum": "70",
+        "img": "https://i.ibb.co/LCpqrWR/Batter-Bowl.jpg"
     }
 ] 
