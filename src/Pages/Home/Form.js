@@ -14,8 +14,8 @@ const Form = () => {
     return (
         <form style={{
             background: `url(${appointment})`
-        }} className='w-100 my-28'>
-            <div className='p-10'>
+        }} className='w-100 my-28 rounded-lg'>
+            <div className=' p-10'>
                 <h1 className='text-rose-900 font-extrabold text-3xl text-center'>Contact Us</h1>
                 <h2 className='font-semibold text-rose-900  text-5xl text-center mb-5'>Stay connected with us</h2>
                 <div className='text-center'>

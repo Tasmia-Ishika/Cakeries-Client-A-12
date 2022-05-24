@@ -1,21 +1,18 @@
 import React from 'react';
-import bg from '../../assets/banner.jpg';
+
 const Banner = () => {
     return (
-        <div className="hero min-h-screen mb-0 p-3">
-            <div className="hero min-h-screen ">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src={bg} className="max-w-sm rounded-lg shadow-2xl" />
-                    <div>
-                        <h1 className="text-5xl font-bold mt-2">We Help You To Create Stories of Cookies, Cakes and Doughnuts... </h1>
-                        <p className="py-6 text-lg">To ensure a proper baking we provide every tool you need. In order to bake perfectly you must choose tools which are truly baking friendly.We keep things from worldwide only to provide you the best.</p>
-                        <button className="btn btn-primary font-bold">Contact Us</button>
-
-                    </div>
+        <div class="hero min-h-screen" style={{ backgroundImage: "url(" + "https://i.ibb.co/DfqNF00/background2.jpg" + ")", }}>
+            <div class="hero-overlay bg-opacity-60"></div>
+            <div class="hero-content text-center text-neutral-content">
+                <div class="max-w-md">
+                    <h1 class="mb-5 text-5xl font-bold">Bangladesh's #1 Largest And Budget Friendly Wholesaler For Bakery Tools.</h1>
+                    <p class="mb-5 mt-2 font-serif text-lg">From Creams, Doughs and Bakings We Love To Narrate New  Stories Everyday For Our Precious Customer's. Check Our Site and Find Your Desirable Items.</p>
+                    <button class="btn btn-primary">Get Started</button>
                 </div>
             </div>
-
         </div>
+
 
 
     );

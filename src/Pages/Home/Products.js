@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Product from './Product';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('product.json')
+        fetch('http://localhost:5000/product')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -24,6 +25,7 @@ const Products = () => {
                     ></Product>)
                 }
             </div>
+
         </div>
     );
 };
