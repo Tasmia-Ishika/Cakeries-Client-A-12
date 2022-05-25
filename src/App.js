@@ -3,6 +3,9 @@ import './App.css';
 import Login from './Pages/Authentication/Login';
 import RequireAuth from './Pages/Authentication/RequireAuth';
 import SignUp from './Pages/Authentication/SignUp';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyOrders from './Pages/Dashboard/MyOrders';
+import Review from './Pages/Dashboard/Review';
 import Blogs from './Pages/Home/Blogs';
 import ContactUs from './Pages/Home/ContactUs';
 import HomeDisplay from './Pages/Home/HomeDisplay';
@@ -24,6 +27,16 @@ function App() {
           <RequireAuth>
            <ProductDetails/>
           </RequireAuth>}>
+        </Route>
+        
+        <Route path="/dashboard" element={
+          <RequireAuth>
+           <Dashboard/>
+          </RequireAuth>
+        }>
+          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route path='review' element={<Review/>}></Route>
         </Route>
 
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>

@@ -27,7 +27,7 @@ const Login = () => {
     useEffect(() => {
         if (user) {
             navigate(from, { replace: true });
-            // console.log(gUser);
+            // console.log(gUser);from, { replace: true }
             // console.log(user);
         }
     }, [user, from, navigate])
@@ -104,7 +104,7 @@ const Login = () => {
                         {signInError}
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
-                    <p><small>New to Cakeries Bangladesh?  <Link className='text-primary font-bold' to="/signup">Create New Account</Link></small></p>
+                    <p><small>New to Cakeries?  <Link className='text-primary font-bold' to="/signup">Create New Account</Link></small></p>
                     <div className="divider">OR</div>
 
                     <button
