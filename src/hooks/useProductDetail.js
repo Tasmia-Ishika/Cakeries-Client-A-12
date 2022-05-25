@@ -9,7 +9,7 @@ const useProductDetail =id => {
             .then(res => res.json())
             .then(data => setProduct(data));
     }, [id]);
-    return [product]
+    return [product, setProduct]
 }
 
 export default useProductDetail;

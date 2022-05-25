@@ -6,6 +6,7 @@ import SignUp from './Pages/Authentication/SignUp';
 import Blogs from './Pages/Home/Blogs';
 import ContactUs from './Pages/Home/ContactUs';
 import HomeDisplay from './Pages/Home/HomeDisplay';
+import MyPortfolio from './Pages/Shared/MyPortfolio';
 import Navbar from './Pages/Shared/Navbar';
 import ProductDetails from './Pages/Shop/ProductDetails';
 
@@ -26,6 +27,7 @@ function App() {
         </Route>
 
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='/contact' element={<ContactUs></ContactUs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>

@@ -1,28 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
 import useProductDetail from '../../hooks/useProductDetail';
 import Footer from '../Shared/Footer';
 
 const ProductDetails = () => {
     const { id } = useParams();
-    const [product] = useProductDetail(id);
-    const [user, loading, error] = useAuthState(auth);
+    const [product, setProduct] = useProductDetail(id);
+    const { name, price, minimum, stock } = product;
+    const [user, loading] = useAuthState(auth);
+    const [error, setError] = useState('')
+    const [totalPrice, setPrice] = useState(null);
+    const [disabled, setDisabled] = useState(false)
 
-    const handleOrder = event => {
-        event.preventDefault();
 
-        
-
-        const placeOrder = {
-            client: user.email,
-            clientName: user.displayName,
-            phone: event.target.phone.value,
+    const handleOrder = (event) => {
+        const orderQuantity = parseInt(event.target.value);
+        console.log(orderQuantity);
+        if (orderQuantity < minimum) {
+            console.log(orderQuantity);
+            console.log(minimum);
+            setError('Select order amount according to minimum quantity')
+            setDisabled(true);
 
         }
-        fetch(`http://localhost:5000/product/${id}`)
 
+        else if (orderQuantity > stock) {
+            setError('Select order amount according to our available stock.')
+            setDisabled(true);
+        }
+        else if (orderQuantity < stock || orderQuantity > minimum) {
+            setError('')
+            setDisabled(false);
+        }
+    }
+    const handlePurchase = event => {
+        event.preventDefault();
+        const orderQuantity = event.target.orderQuantity.value;
+        const totalPrice = orderQuantity * price;
+        setPrice(totalPrice);
+
+        const order = {
+            product: name,
+            price,
+            customerEmail: user.email,
+            customerName: user.displayName,
+            phone: event.target.address.value,
+            address: event.target.phone.value,
+            orderQuantity,
+            totalPrice
+        }
+        console.log(order);
+
+
+        let newAvailableQuantity = parseInt(stock) - parseInt(orderQuantity);
+        const newProduct = { ...product, stock: newAvailableQuantity }
+        setProduct(newProduct);
+
+        //Posting the data to the database with a new collection
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // setProduct(null);
+                console.log(data);
+              
+            })
+
+        //Update Available Quantity in the Database after purchasing product
+
+        fetch(`http://localhost:5000/product/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                toast.success('Purchase confirmed')
+
+            })
     }
 
     return (
@@ -38,7 +105,7 @@ const ProductDetails = () => {
                     <p className='text-2xl m-3 font-serif'>Price:  ${product.price} Per Pieces</p>
                 </div>
                 <div>
-                    <div class="hero bg-base-200 p-4 pt-4">
+                    <form onSubmit={handlePurchase} class="hero bg-base-200 p-4 pt-4">
                         <div class="hero-content flex-col lg:flex-row-reverse">
                             <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-5">
                                 <div class="card-body">
@@ -63,24 +130,22 @@ const ProductDetails = () => {
                                     </div>
                                     <div class="form-control">
                                         <label class="label">
-                                            <span class="label-text">Choose Quantity</span>
-                                        </label>
-                                        <input type="text" name="quantity" placeholder="Quantity" className="input input-bordered w-full max-w-xs" />
-                                    </div>
-                                    <div class="form-control">
-                                        <label class="label">
                                             <span class="label-text">Phone</span>
                                         </label>
                                         <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
                                     </div>
-                                    
-                                    <div class="form-control mt-6">
-                                        <button class="btn btn-primary">Confirm Order</button>
-                                    </div>
+                                    <label className="label">
+                                        Order Quantity
+                                    </label>
+                                    <p className='text-red-500'> {error}</p>
+                                    <input type="number" name='orderQuantity' defaultValue={minimum} onChange={handleOrder} placeholder="Order Quantity" className="input input-bordered w-full max-w-xs" required />
+                                    <p className='text-rose-500 font-bold text-2xl'>Total Price: ${totalPrice}</p>
+                                    <input type="submit" disabled={disabled} value="Confirm Order" placeholder="Type here" className="btn btn-primary w-full max-w-xs" />
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+                    <ToastContainer />
                 </div>
             </div>
             <Footer></Footer>
