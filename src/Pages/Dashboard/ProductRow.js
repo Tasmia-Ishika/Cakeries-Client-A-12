@@ -1,29 +1,10 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 
-const ProductRow = ({ product, index, refetch }) => {
-    const { name, img, price, _id } = product;
+const ProductRow = ({ product, index, refetch, setDeletingProduct }) => {
+    const { name, img, price} = product;
 
-    const handleDelete = () => {
-        fetch(`http://localhost:5000/product/${_id}`, {
-            method: 'DELETE',
-            headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount) {
-                    Swal.fire(
-                        `Item: ${name} is deleted Successfully !!`,
-                        'You can add more items from Add Product Route.',
-                        'success'
-                      )
-                    refetch();
-                }
-            })
-    }
+    
 
     return (
         <tr>
@@ -35,7 +16,10 @@ const ProductRow = ({ product, index, refetch }) => {
             </div></td>
             <td>{name}</td>
             <td>${price}</td>
-            <td><button onClick={() => handleDelete()} class="btn btn-sm  btn-error">Remove</button></td>
+            <td>
+                <label onClick={() => setDeletingProduct(product)} for="delete-confirm-modal" class="btn btn-sm  btn-error">Remove</label>
+
+            </td>
         </tr>
     );
 };
