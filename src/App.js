@@ -4,6 +4,7 @@ import Login from './Pages/Authentication/Login';
 import RequireAdmin from './Pages/Authentication/RequireAdmin';
 import RequireAuth from './Pages/Authentication/RequireAuth';
 import SignUp from './Pages/Authentication/SignUp';
+import AddProduct from './Pages/Dashboard/AddProduct';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
@@ -45,6 +46,10 @@ function App() {
           <Route path='profile' element={<MyProfile />}></Route>
           <Route path='user' element={<RequireAdmin>
             <Users />
+          </RequireAdmin>}>
+          </Route>
+          <Route path='addProduct' element={<RequireAdmin>
+            <AddProduct />
           </RequireAdmin>}>
           </Route>
         </Route>
