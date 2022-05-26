@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import Google  from '../../assets/google.png';
+import Google from '../../assets/google.png';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 // import useToken from '../../hooks/useToken';
 
 const Login = () => {
@@ -17,7 +18,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    // const [token] = useToken(user || gUser)
+    const [token] = useToken(user || gUser)
 
     let signInError;
     const navigate = useNavigate();
@@ -25,13 +26,12 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate(from, { replace: true });
-            // console.log(gUser);from, { replace: true }
-            // console.log(user);
+            
         }
-    }, [user, from, navigate])
-   
+    }, [token, from, navigate])
+
 
     if (loading || gLoading) {
         return <Loading></Loading>
@@ -110,7 +110,7 @@ const Login = () => {
                     <button
                         onClick={() => signInWithGoogle()}
                         className="btn  btn-outline"
-                    ><img style={{ width: '30px' }} src={Google} alt="" /><span className='px-2'> Continue with Google</span> 
+                    ><img style={{ width: '30px' }} src={Google} alt="" /><span className='px-2'> Continue with Google</span>
                     </button>
 
                 </div>
