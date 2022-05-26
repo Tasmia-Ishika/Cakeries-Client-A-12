@@ -11,15 +11,25 @@ const UserRow = ({ user, refetch }) => {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
-          .then(res => res.json())
+            .then(res => {
+                if(res.status === 403){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Canceled !!',
+                        text: 'You cannot make admin',
+                      })   
+                }
+               return res.json()
+            })
             .then(data => {
-                console.log(data);
-                refetch();
-                Swal.fire(
-                    'Successful!!',
-                    'You made an admin!',
-                    'success'
-                  )
+                if (data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire(
+                        'Successful !!',
+                        'You made an admin!',
+                        'success'
+                    )
+                }
             })
     }
 
