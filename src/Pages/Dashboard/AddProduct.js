@@ -1,12 +1,13 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const imageStorageKey = 
-    '5d8d36463ced5b7184ed2ea2a14d6ada';
-    
+    const imageStorageKey =
+        '5d8d36463ced5b7184ed2ea2a14d6ada';
+
     const onSubmit = async data => {
         // console.log('data', data)
         const image = data.img[0];
@@ -14,7 +15,7 @@ const AddProduct = () => {
         formData.append('image', image)
         const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`
         fetch(url, {
-            method: 'POST',             
+            method: 'POST',
             body: formData
         })
             .then(res => res.json())
@@ -40,13 +41,22 @@ const AddProduct = () => {
                     })
                         .then(res => res.json())
                         .then(resProduct => {
-                            console.log('product inserted', resProduct);
+                            console.log('inserted', resProduct);
                             if (resProduct.result.insertedId) {
-                                toast.success('Product Successfully added')
                                 reset();
+                                Swal.fire(
+                                    'Successful, YAY !!',
+                                    'You added product successfully !!',
+                                    'success'
+                                  )
                             }
                             else {
-                                toast.error('Failed to add product')
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Sorry, Could not add a product !!',
+                                    text: 'Please try again..',
+                                    
+                                  })
                             }
                         })
                 }
