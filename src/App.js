@@ -5,6 +5,7 @@ import RequireAuth from './Pages/Authentication/RequireAuth';
 import SignUp from './Pages/Authentication/SignUp';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
+import MyProfile from './Pages/Dashboard/MyProfile';
 import Review from './Pages/Dashboard/Review';
 import Blogs from './Pages/Home/Blogs';
 import ContactUs from './Pages/Home/ContactUs';
@@ -37,6 +38,7 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<Review/>}></Route>
+          <Route path='profile' element={<MyProfile/>}></Route>
         </Route>
 
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>

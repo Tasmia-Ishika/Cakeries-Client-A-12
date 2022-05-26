@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
 import useProductDetail from '../../hooks/useProductDetail';
 import Footer from '../Shared/Footer';
@@ -72,7 +73,7 @@ const ProductDetails = () => {
             .then(data => {
                 // setProduct(null);
                 console.log(data);
-              
+
             })
 
         //Update Available Quantity in the Database after purchasing product
@@ -87,8 +88,11 @@ const ProductDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                toast.success('Purchase confirmed')
-
+                Swal.fire(
+                    'Your order is confirmed!!',
+                    'Thank you for the purchase.',
+                    'success'
+                )
             })
     }
 
