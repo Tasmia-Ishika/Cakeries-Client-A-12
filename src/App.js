@@ -7,6 +7,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Review from './Pages/Dashboard/Review';
+import Users from './Pages/Dashboard/Users';
 import Blogs from './Pages/Home/Blogs';
 import ContactUs from './Pages/Home/ContactUs';
 import HomeDisplay from './Pages/Home/HomeDisplay';
@@ -39,6 +40,7 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<Review/>}></Route>
           <Route path='profile' element={<MyProfile/>}></Route>
+          <Route path='user' element={<Users/>}></Route>
         </Route>
 
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
