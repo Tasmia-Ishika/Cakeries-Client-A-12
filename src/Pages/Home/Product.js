@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const Product = ({product}) => {
   const navigate = useNavigate();
@@ -24,8 +24,9 @@ const navigateToProductDetail = id => {
           
         </div>
       </div>
+     
     </div>
   );
-};
+}; 
 
 export default Product;

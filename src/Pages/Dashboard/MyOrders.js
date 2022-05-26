@@ -19,6 +19,7 @@ const MyOrders = () => {
 
 
       })
+
         .then(res => {
           console.log('res', res);
           if (res.status === 401 || res.status === 403) {
@@ -30,7 +31,9 @@ const MyOrders = () => {
           return res.json()
         })
         .then(data => {
+          console.log(data);
           setOrders(data);
+
         });
     }
   }, [user])
@@ -38,7 +41,7 @@ const MyOrders = () => {
 
   return (
     <div>
-      <h1>my orders : {orders.length}</h1>
+      <h1>My orders : {orders.length}</h1>
       <div class="overflow-x-auto">
         <table class="table w-full">
 
