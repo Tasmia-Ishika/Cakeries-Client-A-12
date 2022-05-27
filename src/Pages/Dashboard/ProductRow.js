@@ -1,5 +1,4 @@
 import React from 'react';
-import Swal from 'sweetalert2';
 
 const ProductRow = ({ product, index, refetch, setDeletingProduct }) => {
     const { name, img, price} = product;
