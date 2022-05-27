@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Shared/Footer';
 
 const Blogs = () => {
     return (
@@ -28,7 +29,7 @@ const Blogs = () => {
 
             <h3 className='text-3xl text-rose-600 m-2 p-2 font-bold'> What is a unit test? ,Why should write unit tests?</h3>
             <p className=' text-black m-2 p-3 font-serif'>ANSWER: Unit test is a software testing method.The developers learn the functionality and gains knowledge on the unit API. It allows the developers to refine the code and makes sure that the module works properly. </p>
-
+            <Footer></Footer>
         </div>
     );
 };

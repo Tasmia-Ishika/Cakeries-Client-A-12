@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Footer from '../Shared/Footer';
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -41,7 +42,7 @@ const MyOrders = () => {
 
   return (
     <div>
-      <h1>My orders : {orders.length}</h1>
+      <h1 className='text-center text-4xl font-serif mb-7'>My orders : {orders.length} Items</h1>
       <div class="overflow-x-auto">
         <table class="table w-full">
 
@@ -79,6 +80,7 @@ const MyOrders = () => {
           </tbody>
         </table>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

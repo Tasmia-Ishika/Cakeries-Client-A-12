@@ -8,7 +8,7 @@ const navigateToProductDetail = id => {
   navigate(`/shop/${id}`)
 }
 
-  return (
+  return ( 
     <div class="card w-50 bg-base-100 shadow-xl">
       <figure class="px-10 pt-10">
         <img src={product.img} alt="Shoes" class="rounded-xl" />
@@ -22,7 +22,7 @@ const navigateToProductDetail = id => {
         <div class="card-actions">
           <button onClick={() => navigateToProductDetail(product._id)} class="btn btn-primary font-bold">Purchase</button>
           
-        </div>
+        </div> 
       </div>
      
     </div>

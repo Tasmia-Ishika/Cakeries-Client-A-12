@@ -13,7 +13,7 @@ import Testimonial from './Testimonial';
 
 const HomeDisplay = () => {
     return (
-        <div> 
+        <div className='products-container'> 
            <Banner/>
            <ExtraSection/>
            <Products/>

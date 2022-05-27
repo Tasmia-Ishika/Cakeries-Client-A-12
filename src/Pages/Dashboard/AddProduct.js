@@ -17,7 +17,7 @@ const AddProduct = () => {
         fetch(url, {
             method: 'POST',
             body: formData
-        })
+        }) 
             .then(res => res.json())
             .then(result => {
                 // console.log('imgbb result', result);
@@ -63,9 +63,9 @@ const AddProduct = () => {
             })
     };
     return (
-        <div>
-            <h2 className='text-2xl ml-12 p-5'>Add New Products</h2>
-            <form className='ml-10 p-5' onSubmit={handleSubmit(onSubmit)}>
+        <div className=''>
+            <h2 className='text-4xl ml-12 p-5 font-serif my-auto'>Add New Products</h2>
+            <form className='my-auto ml-12 p-5' onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Product Name</span>
