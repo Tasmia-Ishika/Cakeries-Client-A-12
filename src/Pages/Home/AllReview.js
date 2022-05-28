@@ -4,7 +4,7 @@ import Reviews from './Reviews';
 
 const AllReview = () => {
     const [reviews] = useReview();
-    return (
+    return ( 
         <div>
             <div>
                 <h1 className='text-center text-4xl font-serif m-8'>Our Client's Feedback</h1>
@@ -14,7 +14,6 @@ const AllReview = () => {
                     reviews.map(review => <Reviews
                         key={review._id}
                         review={review}
-
                     ></Reviews>)
                 }
             </div>

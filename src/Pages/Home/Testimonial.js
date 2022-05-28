@@ -21,7 +21,7 @@ const Testimonial = () => {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 m-6 p-7' >
                 {
-                   [...reviews].reverse().slice(0, 4).map(review => <Reviews
+                    [...reviews].reverse().slice(0, 4).map(review => <Reviews
                         key={review._id}
                         review={review}
                     ></Reviews>)

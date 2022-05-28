@@ -3,9 +3,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import Rating from 'react-rating';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Reviews = ({ review }) => {
-    console.log(review);
-     
-
+    
     return (
         <div className="card lg:max-w-lg bg-neutral text-neutral-content bg-base-100 shadow-xl">
             <div className="card-body">
@@ -21,7 +19,7 @@ const Reviews = ({ review }) => {
                                 readonly
                             ></Rating></p>
                         </div>
-                     
+
                     </div>
 
                 </div>

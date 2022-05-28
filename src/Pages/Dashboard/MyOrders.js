@@ -4,11 +4,14 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Footer from '../Shared/Footer';
+import DeleteOrderConfirmModal from './DeleteOrderConfirmModal';
+import OrderRow from './OrderRow';
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
+  const [deleteOrder, setDeleteOrder] = useState(null);
 
   useEffect(() => {
     if (user) {
@@ -22,7 +25,7 @@ const MyOrders = () => {
       })
 
         .then(res => {
-          console.log('res', res);
+          // console.log('res', res);
           if (res.status === 401 || res.status === 403) {
             signOut(auth);
             localStorage.removeItem('accessToken');
@@ -37,7 +40,7 @@ const MyOrders = () => {
 
         });
     }
-  }, [user])
+  }, [user, navigate])
 
 
   return (
@@ -49,36 +52,34 @@ const MyOrders = () => {
           <thead>
             <tr>
               <th></th>
-              <th>Name</th>
               <th>Product</th>
               <th>Quantity</th>
               <th>Amount</th>
               <th>Payment</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
             {
-              orders.map((order, index) => <tr>
-                <th>{index + 1}</th>
-                <td>{order.customerName}</td>
-                <td>{order.product}</td>
-                <td>{order.orderQuantity}</td>
-                <td>${order.totalPrice}</td>
-
-                <td>{
-                  (order.totalPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-sm btn-success'>Pay</button></Link>
-                }
-                  {(order.totalPrice && order.paid) && <div>
-                    <p><span className='text-success text-lg font-bold'>Paid</span></p>
-                    <p>TransactionID: <span className='text-success font-semibold'>{order.transactionId}</span></p>
-                  </div>
-                  }
-                </td>
-              </tr>)
+              orders.map((order, index) => <OrderRow
+                key={order._id}
+                order={order}
+                index={index}
+                setDeleteOrder={setDeleteOrder}
+              ></OrderRow>)
             }
-
           </tbody>
         </table>
+        <div>
+          {
+            deleteOrder && <DeleteOrderConfirmModal
+            deleteOrder={deleteOrder}
+            orders={orders}
+            setOrders={setOrders}
+            setDeleteOrder={setDeleteOrder}
+            ></DeleteOrderConfirmModal>
+          }
+        </div>
       </div>
       <Footer></Footer>
     </div>

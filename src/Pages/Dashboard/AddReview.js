@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { toast } from 'react-toastify';
+
 import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
 
@@ -28,8 +28,8 @@ const AddReview = () => {
             .then(data => {
                 console.log(data);
                 Swal.fire(
-                    'Good job!',
-                    'You clicked the button!',
+                    'Feedback Successfully Added !',
+                    'Thank you for your feedback.We appreciate you because it helps us to improve our services.',
                     'success'
                   )
             })
@@ -44,7 +44,7 @@ const AddReview = () => {
                 <input type="name" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                 <input type="number" name='rating' placeholder="Ratings" className="input input-bordered w-full max-w-xs" />
                 <input type="text" name='review' placeholder="Your Feedback" className="input input-bordered w-full max-w-xs" required />
-                <input type="submit" value="Submit" placeholder="Type here" className="btn btn-primary w-full max-w-xs" />
+                <input type="submit" value="Submit" placeholder="Type here" className="btn btn-primary w-full max-w-xs"/>
             </form>
         </div>
     );

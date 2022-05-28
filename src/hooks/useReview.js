@@ -7,7 +7,7 @@ const useReview = () =>{
         .then(res => res.json())
         .then( data => { 
             setReviews(data);
-        })
+        }) 
     }, [])
     return [reviews, setReviews]
 }

@@ -5,7 +5,6 @@ import Banner from './Banner';
 import BusinessSummary from './BusinessSummary';
 import ExtraSection from './ExtraSection';
 import Form from './Form';
-import './HomeDisplay.css';
 import Products from './Products';
 import Testimonial from './Testimonial';
 
