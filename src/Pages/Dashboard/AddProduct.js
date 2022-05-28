@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import Footer from '../Shared/Footer';
 
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -64,8 +65,8 @@ const AddProduct = () => {
     };
     return (
         <div className=''>
-            <h2 className='text-4xl ml-12 p-5 font-serif my-auto'>Add New Products</h2>
-            <form className='my-auto ml-12 p-5' onSubmit={handleSubmit(onSubmit)}>
+            <h2 className='text-4xl ml-6 p-5 font-serif my-auto'>Add New Products</h2>
+            <form className='my-auto ml-5 p-5' onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Product Name</span>
@@ -185,6 +186,7 @@ const AddProduct = () => {
 
                 <input className='btn btn-primary w-full text-white max-w-xs' value='Add Product' type="submit" />
             </form>
+            <Footer></Footer>
         </div>
     );
 };

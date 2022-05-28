@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query'
+import Footer from '../Shared/Footer';
 import Loading from '../Shared/Loading';
 import DeleteConfirmModal from './DeleteConfirmModal';
 import ProductRow from './ProductRow';
@@ -52,6 +53,7 @@ const ManageProducts = () => {
                     setDeletingProduct={setDeletingProduct}
                 ></DeleteConfirmModal>
             }
+            <Footer></Footer>
         </div>
     );
 };
