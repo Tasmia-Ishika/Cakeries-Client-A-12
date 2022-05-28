@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 const DeleteOrderConfirmModal = ({ deleteOrder, setDeleteOrder, setOrders, orders }) => {
     const { product, _id } = deleteOrder;
     const handleDelete = () => {
-        fetch(`http://localhost:5000/orders/${_id}`, {
+        fetch(`https://afternoon-meadow-48575.herokuapp.com/orders/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -18,8 +18,8 @@ const DeleteOrderConfirmModal = ({ deleteOrder, setDeleteOrder, setOrders, order
                         icon: 'error',
                         title: 'Your Order Just Canceled',
                         text: 'Go to shop page if you want to place order again.',
-                       
-                      });
+
+                    });
                     setDeleteOrder(null);
                     const leftOvers = orders.filter(order => order._id !== _id);
                     setOrders(leftOvers)

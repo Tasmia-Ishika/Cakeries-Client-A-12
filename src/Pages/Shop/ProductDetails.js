@@ -62,7 +62,7 @@ const ProductDetails = () => {
         setProduct(newProduct);
 
         //Posting the data to the database with a new collection
-        fetch('http://localhost:5000/orders', {
+        fetch('https://afternoon-meadow-48575.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -78,7 +78,7 @@ const ProductDetails = () => {
 
         //Update Available Quantity in the Database after purchasing product
 
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://afternoon-meadow-48575.herokuapp.com/product/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -109,32 +109,32 @@ const ProductDetails = () => {
                     <p className='text-2xl m-3 font-serif'>Price:  ${product.price} Per Pieces</p>
                 </div>
                 <div>
-                    <form onSubmit={handlePurchase} class="hero bg-base-200 p-4 pt-4">
-                        <div class="hero-content flex-col lg:flex-row-reverse">
-                            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-5">
-                                <div class="card-body">
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Name</span>
+                    <form onSubmit={handlePurchase} className="hero bg-base-200 p-4 pt-4">
+                        <div className="hero-content flex-col lg:flex-row-reverse">
+                            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-5">
+                                <div className="card-body">
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">Name</span>
                                         </label>
                                         <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
 
                                     </div>
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Email</span>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">Email</span>
                                         </label>
                                         <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
                                     </div>
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Address</span>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">Address</span>
                                         </label>
                                         <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" />
                                     </div>
-                                    <div class="form-control">
-                                        <label class="label">
-                                            <span class="label-text">Phone</span>
+                                    <div className="form-control">
+                                        <label className="label">
+                                            <span className="label-text">Phone</span>
                                         </label>
                                         <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
                                     </div>

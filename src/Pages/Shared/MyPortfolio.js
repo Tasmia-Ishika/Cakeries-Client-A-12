@@ -27,8 +27,8 @@ const MyPortfolio = () => {
             </div>
             <div>
                 <h1 className='text-2xl font-bold p-5'>Here are some of my project's made using these technologies. Live Website links with their names are in below:</h1>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-full">
 
                         <thead>
                             <tr>

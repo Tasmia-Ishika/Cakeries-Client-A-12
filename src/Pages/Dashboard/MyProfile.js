@@ -8,7 +8,7 @@ const MyProfile = () => {
     const [user, loading] = useAuthState(auth);
     const [dbUser, setDbUser] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/userProfile?email=${user.email}`, {
+        fetch(`https://afternoon-meadow-48575.herokuapp.com/userProfile?email=${user.email}`, {
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const MyProfile = () => {
         }
 
 
-        fetch(`http://localhost:5000/userProfile/${user.email}`, {
+        fetch(`https://afternoon-meadow-48575.herokuapp.com/userProfile/${user.email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const MyProfile = () => {
                     'Your Profile Updated Successfully !!',
                     'You can edit your profile anytime.',
                     'success'
-                  )
+                )
             })
     }
     return (

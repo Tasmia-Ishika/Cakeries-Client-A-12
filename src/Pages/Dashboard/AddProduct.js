@@ -17,7 +17,7 @@ const AddProduct = () => {
         fetch(url, {
             method: 'POST',
             body: formData
-        }) 
+        })
             .then(res => res.json())
             .then(result => {
                 // console.log('imgbb result', result);
@@ -31,7 +31,7 @@ const AddProduct = () => {
                         minimum: data.minimum,
                         img: img
                     }
-                    fetch('http://localhost:5000/product', {
+                    fetch('https://afternoon-meadow-48575.herokuapp.com/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -48,15 +48,15 @@ const AddProduct = () => {
                                     'Successful, YAY !!',
                                     'You added product successfully !!',
                                     'success'
-                                  )
+                                )
                             }
                             else {
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Sorry, Could not add a product !!',
                                     text: 'Please try again..',
-                                    
-                                  })
+
+                                })
                             }
                         })
                 }

@@ -17,7 +17,7 @@ const AddReview = () => {
             review
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://afternoon-meadow-48575.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -31,11 +31,11 @@ const AddReview = () => {
                     'Feedback Successfully Added !',
                     'Thank you for your feedback.We appreciate you because it helps us to improve our services.',
                     'success'
-                  )
+                )
             })
 
     }
-    
+
     return (
         <div>
             <h2 className='text-5xl font-serif text-center mb-3'>Drop Feedback</h2>
@@ -44,7 +44,7 @@ const AddReview = () => {
                 <input type="name" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                 <input type="number" name='rating' placeholder="Ratings" className="input input-bordered w-full max-w-xs" />
                 <input type="text" name='review' placeholder="Your Feedback" className="input input-bordered w-full max-w-xs" required />
-                <input type="submit" value="Submit" placeholder="Type here" className="btn btn-primary w-full max-w-xs"/>
+                <input type="submit" value="Submit" placeholder="Type here" className="btn btn-primary w-full max-w-xs" />
             </form>
         </div>
     );

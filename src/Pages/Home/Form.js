@@ -25,7 +25,7 @@ const Form = () => {
                     <br />
                     <textarea className="textarea textarea-accent input-md w-full max-w-xs mb-5" placeholder="Your Message"></textarea>
                     <br />
-                    <button onClick={handleSubscribe} class="btn btn-primary font-bold">Subscribe</button>
+                    <button onClick={handleSubscribe} className="btn btn-primary font-bold">Subscribe</button>
                 </div>
 
             </div>
