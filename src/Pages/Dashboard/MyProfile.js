@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
+import Footer from '../Shared/Footer';
 
 const MyProfile = () => {
     const [user, loading] = useAuthState(auth);
@@ -53,7 +54,7 @@ const MyProfile = () => {
         <div>
             <h2 className='text-center text-4xl font-serif'>Update Profile</h2>
             <p className='text-center text-lg font-bold mb-9 mt-2'>You can update or edit your information in your profile anytime.</p>
-            <form onSubmit={handleSubmit} className='grid  grid-cols-1 gap-3 justify-items-center mt-2'>
+            <form onSubmit={handleSubmit} className='grid  grid-cols-1 gap-3 justify-items-center mt-2 mb-7'>
                 <input type="name" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                 <input type="email" name='email' disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
                 <input type="text" name='location' defaultValue={dbUser[0]?.location || ''} placeholder="Location" className="input input-bordered w-full max-w-xs" />
@@ -61,6 +62,7 @@ const MyProfile = () => {
                 <input type="text" name='linkedin' defaultValue={dbUser[0]?.linkedin || ''} placeholder="LinkedIn ID" className="input input-bordered w-full max-w-xs" />
                 <input type="submit" value="submit" className="btn btn-primary w-full max-w-xs" />
             </form>
+            <Footer></Footer>
         </div>
     );
 };

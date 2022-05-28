@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query'
+import Footer from '../Shared/Footer';
 import Loading from '../Shared/Loading';
 import UserRow from './UserRow';
 const Users = () => {
@@ -36,6 +37,7 @@ const Users = () => {
                     </tbody>
                 </table>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

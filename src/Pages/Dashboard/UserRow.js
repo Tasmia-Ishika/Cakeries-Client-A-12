@@ -2,7 +2,7 @@ import React from 'react';
 
 import Swal from 'sweetalert2';
 
-const UserRow = ({ user, refetch }) => {
+const UserRow = ({ user, refetch, }) => {
     const { email, role } = user;
     const makeAdmin = () => {
         fetch(`https://afternoon-meadow-48575.herokuapp.com/user/admin/${email}`, {
@@ -34,7 +34,7 @@ const UserRow = ({ user, refetch }) => {
     }
     return (
         <tr>
-            <th>1</th>
+            <th></th>
             <td>{email}</td>
             <td>{role !== 'admin' && <button onClick={makeAdmin} className="btn btn-sm">Make Admin</button>}</td>
 
