@@ -32,7 +32,7 @@ const AddProduct = () => {
                         minimum: data.minimum,
                         img: img
                     }
-                    fetch('http://localhost:5000/product', {
+                    fetch('https://afternoon-meadow-48575.herokuapp.com/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

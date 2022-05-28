@@ -7,7 +7,7 @@ import ProductRow from './ProductRow';
 
 const ManageProducts = () => {
     const [deletingProduct, setDeletingProduct] = useState(null);
-    const { data: products, isLoading, refetch } = useQuery('product', () => fetch('http://localhost:5000/product', {
+    const { data: products, isLoading, refetch } = useQuery('product', () => fetch('https://afternoon-meadow-48575.herokuapp.com/product', {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

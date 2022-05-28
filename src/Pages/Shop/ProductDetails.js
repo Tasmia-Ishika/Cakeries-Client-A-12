@@ -62,7 +62,7 @@ const ProductDetails = () => {
         setProduct(newProduct);
 
         //Posting the data to the database with a new collection
-        fetch('http://localhost:5000/orders', {
+        fetch('https://afternoon-meadow-48575.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -78,7 +78,7 @@ const ProductDetails = () => {
 
         //Update Available Quantity in the Database after purchasing product
 
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://afternoon-meadow-48575.herokuapp.com/product/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
