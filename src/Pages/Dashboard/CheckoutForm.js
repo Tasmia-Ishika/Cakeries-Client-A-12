@@ -14,20 +14,22 @@ const CheckoutForm = ({ order }) => {
     const { _id, totalPrice, customerEmail, customerName } = order;
 
     useEffect(() => {
-        fetch('https://afternoon-meadow-48575.herokuapp.com/create-payment-intent', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            },
-            body: JSON.stringify({ totalPrice })
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data?.clientSecret) {
-                    setClientSecret(data.clientSecret);
-                }
-            });
+        if (totalPrice) {
+            fetch('http://localhost:5000/create-payment-intent', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify({ totalPrice })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data?.clientSecret) {
+                        setClientSecret(data.clientSecret);
+                    }
+                });
+        }
     }, [totalPrice])
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -79,8 +81,8 @@ const CheckoutForm = ({ order }) => {
                 order: _id,
                 transactionId: paymentIntent.id,
             }
-            fetch(`https://afternoon-meadow-48575.herokuapp.com/orders/${_id}`, {
-                method: 'PATCH',
+            fetch(`http://localhost:5000/orders/${_id}`, {
+                method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

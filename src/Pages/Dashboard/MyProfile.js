@@ -6,10 +6,10 @@ import auth from '../../firebase.init';
 import Footer from '../Shared/Footer';
 
 const MyProfile = () => {
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const [dbUser, setDbUser] = useState({});
     useEffect(() => {
-        fetch(`https://afternoon-meadow-48575.herokuapp.com/userProfile?email=${user.email}`, {
+        fetch(`http://localhost:5000/userProfile?email=${user.email}`, {
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const MyProfile = () => {
         }
 
 
-        fetch(`https://afternoon-meadow-48575.herokuapp.com/userProfile/${user.email}`, {
+        fetch(`http://localhost:5000/userProfile/${user.email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
