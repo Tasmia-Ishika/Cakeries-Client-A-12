@@ -8,7 +8,6 @@ import SignUp from './Pages/Authentication/SignUp';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import AddReview from './Pages/Dashboard/AddReview';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
@@ -67,10 +66,6 @@ function App() {
           </Route>
           <Route path='manageProduct' element={<RequireAdmin>
             <ManageProducts />
-          </RequireAdmin>}>
-          </Route>
-          <Route path='manageOrders' element={<RequireAdmin>
-            <ManageAllOrders />
           </RequireAdmin>}>
           </Route>
         </Route>
